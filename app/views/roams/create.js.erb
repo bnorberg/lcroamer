@@ -1,0 +1,2 @@
+$('#<%=@roam.task_id%>').html("<%=@roam.created_at.localtime.to_s.sub(/\-\d\d\d\d/, '') %>");
+$('#name_<%=@roam.task_id%>').html("<%=@roam.roamer_name %>");

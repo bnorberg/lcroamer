@@ -1,0 +1,98 @@
+<div class="containter"id="pjax-container">
+	<div class="container">
+	    <div class="row">
+	      <div class="span9"><%- model_class = Task -%>
+			<div class="page-header">
+	  			<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+			</div>
+			<table class="table table-striped">
+	  			<thead>
+	    			<tr>
+	      				<th><%= model_class.human_attribute_name("Task") %></th>
+						<th><%= model_class.human_attribute_name("Note") %></th>
+	      				<th><%= model_class.human_attribute_name("Last Checked") %></th>
+						<th><%= model_class.human_attribute_name("By") %></th>
+	      				<th><%=t '.actions', :default => t("helpers.actions") %></th>
+	    			</tr>
+	  			</thead>
+	  			<tbody>
+	    		<% @room.tasks.order("id ASC").each do |task| %>
+	      			<tr>
+<!-- Trigger modal -->		
+	        			<td>
+							<a type="button" style="width:100%;" href="#info_modal_<%= task.id %>" data-toggle="modal"><%= task.name %></a></td>
+<!-- Start Modal Content -->							
+							<div class="modal fade" id="info_modal_<%= task.id %>">
+								<div class="modal-header">
+							    	<a class="close" data-dismiss="modal">&times;</a>
+							    	<h3><%= task.name %></h3>
+								</div>							  
+								<div class="modal-body">
+									<% if !task.photo.blank? %>
+								  		<% if task.photo_file_size < 100000 %>
+							    			<%= link_to image_tag( task.photo.url), task.photo.url, :target => '_blank' %><br /><br />
+											<p><%= auto_link(task.description, :html=> { :target => '_blank' }) %></p>
+								  		<% else %>
+											<%= link_to image_tag( task.photo.url(:medium)), task.photo.url, :target => '_blank' %><br /><br />
+											<p><%= auto_link(task.description, :html=> { :target => '_blank' }) %></p>
+										<% end %>
+									<% else %>	
+										<p> No Image</p><br />
+										<p><%= auto_link(task.description, :html => { :target => '_blank' }) %></p>	
+								  	<% end %>
+									<% if !task.note.blank? %>
+										<p><b>Note: <%= auto_link(task.note, :html=> { :target => '_blank' }) %></b></p>
+								  	<% end %>
+							  	</div>
+							  	<div class="modal-footer">
+									<a href="#" class="btn" data-dismiss="modal">Close</a>
+							  	</div>
+<!-- End Modal Content -->	
+<!-- Add/Remove note to task -->						
+								<% if task.note.blank? %>
+									<td><%= link_to '+', edit_task_path(task), :class =>'psign' %></td>
+								<% else %>
+									<td><%= link_to image_tag("exclamation-mark-icon.png"), edit_task_path(task) %></td>
+								<% end %>
+<!-- Change color of timestamp based on last time task completed -->							
+								<% if !task.roams.blank? %>
+									<% if task.roams.last.created_at <= 3.weeks.ago %>  
+										<td id="<%=task.id%>"><span class="threeweek"><%=task.roams.last.created_at.localtime.to_s.sub(/\-\d\d\d\d/, '') %></span></td>
+									<% elsif task.roams.last.created_at <= 5.days.ago %>
+										<td id="<%=task.id%>"><span class="fiveday"><%=task.roams.last.created_at.localtime.to_s.sub(/\-\d\d\d\d/, '') %></span></td>
+							   		<% else %>
+										<td 	id="<%=task.id%>"><%=task.roams.last.created_at.localtime.to_s.sub(/\-\d\d\d\d/, '') %></td>
+							   		<% end %>
+								<td id="name_<%=task.id%>"><%= task.roams.last.roamer_name %></td>
+							   <% else %>
+							   	<td></td>
+								<td></td>
+							   <% end %>
+<!-- Submits current user name and timestamp into the roams table -->
+	        					<td>		
+	          						<%= link_to t('.new', :default => t("Done")),
+	{:controller => "roams", :action => "create", :roamer_name => current_user.username, :task_id => task.id, :user_id => current_user.id}, :method => "post", :remote => true,
+	                      :class => 'btn btn-mini btn-danger', :'data-skip-pjax' => true %>
+	        				  	</td>
+	      					</tr>
+	    				  <% end %>
+	  				</tbody>
+				</table>
+			</div>	 
+			<div class="span3">
+	      		<h2>Rooms</h2>
+				<% @rooms.each do |room| %>
+<!-- Stops the room the user is currently viewing from being a link -->
+				<% if @room.location_id == room.location_id %>
+				<ul id="rooms">
+				<% if current_page?room_path(room) %>
+		        	<li><b><%= room.name %></b></li>
+				<% else %>
+				<li><%= link_to room.name, room_path(room) %></li>
+				<% end %>
+		        </ul>
+		<% end %>
+				<% end %>
+					
+	    	</div>
+</div>	

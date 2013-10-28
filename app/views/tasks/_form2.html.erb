@@ -1,0 +1,29 @@
+<!-- Form used to add/edit/remove comments from tasks -->
+<%= form_for @task, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :note, :class => 'control-label' %>
+    <div class="controls">
+<!-- Adds below default text if these is no note currently in the textbox -->	
+	<% if @task.note.blank? %>
+	  <%= f.text_area :note, :value => "Add new note with some or all of the following:
+
+*what is wrong with the hardware and where is it located?
+	
+*what is the date?
+
+*was a ticket put in and on what date?
+
+*what part of the task did you complete?", :class => 'text_area', :style => "color:gray; font-style:italic" %>
+	<% else %>
+      <%= f.text_area :note, :class => 'text_area' %>
+    </div>
+	<% end %>
+  </div>
+ <%= f.hidden_field :room_id %>
+<div class="container">
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                :back, :class => 'btn' %>
+  </div></div>
+<% end %>

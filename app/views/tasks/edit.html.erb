@@ -1,0 +1,13 @@
+<% if !request.referer.include?("rooms") %>
+<%- model_class = Task -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+	<%= render :partial => 'form' %>
+<% else %>
+<%- model_class = Task -%>
+<div class="page-header">
+  <h1><%= model_class.human_attribute_name("Edit Note") %></h1>
+</div>
+	<%= render :partial => 'form2' %>
+<% end %>

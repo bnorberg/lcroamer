@@ -1,0 +1,26 @@
+<%- model_class = Roam -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:roamer_name) %></th>
+      <th><%= model_class.human_attribute_name(:task_id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @roams.each do |roam| %>
+      <tr>
+        <td><%= link_to roam.id, roam_path(roam) %></td>
+        <td><%= roam.roamer_name %></td>
+        <td><%= roam.task_id %></td>
+        <td><%= roam.user_id %></td>
+        <td><%= roam.created_at.localtime.to_s.sub(/\-\d\d\d\d/, '') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

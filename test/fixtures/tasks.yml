@@ -1,0 +1,392 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: Check Printers
+  description: Make sure there are no error messages on any of the printers.
+  room_id: 1
+
+two:
+  id: 2
+  name: Check Printer Tables
+  description: Make sure all garbage and paper is cleared from the tables.  Check to see if stapler and hole punch are on the table.
+  room_id: 1
+
+three:
+  id: 3
+  name: Check Scanners
+  description: Make sure the scanners are reading a thumb drive and the bulbs are working properly.
+  room_id: 1
+  
+four:   
+  id: 4
+  name: Check PPR
+  description: Calibrate SMART Board. Login into the SMART Board. Open Smart Board tools application. Select calibeate icon and follow directions. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.       
+  room_id: 1
+  
+five: 
+  id: 5    
+  name: Straigten Bookshelf Signs
+  description: Make sure signs on the Reference Bookshelves are facing out and straight.
+  room_id: 1
+  
+six:
+  id: 6
+  name: Check Study Room A
+  description: Test vga connection to the screen by using the vga connector for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 1
+      
+seven:
+  id: 7
+  name: Check Study Room B
+  description: Test vga connection to the screen by using the vga connector for the ipad which can be found in the roaming bucket in 1206. Make sure correct furniture is in the room.
+  room_id: 1   
+  
+eight:
+  id: 8
+  name: Wipe Down LC Keyboards
+  description: Once every two weeks we should wipe down all LC keyboards. Make sure to communicate with Brenna if certain computers could not be cleaned.
+  room_id: 1
+  
+nine:
+  id: 9
+  name: Straighten Workstations
+  description: Push in any seats and clear any garbage from empty workstations.
+  room_id: 2
+  
+ten:
+  id: 10
+  name: Check Microfilm Scanners
+  description: Run microfilm through the scanners to make sure they are working correctly. This task can be checked off if a patron is using them during your roam. Microfilm can be found in the roaming bucket in 1206.
+  room_id: 2
+  
+eleven:
+  id: 11
+  name: Check Flatbed Scanners
+  description: Do a quick scan on any flatbed scanners that are available during your roam.
+  room_id: 2
+ 
+twelve:
+  id: 12
+  name: Check Feed Scanners
+  description: Do a quick scan on any feed scanners that are available during your roam.
+  room_id: 2
+  
+thirteen:
+  id: 13
+  name: Check Slide Scanners
+  description: Run a few slides through the scanner.  Digital slides can be found in the roamer bucket in 1206.
+  room_id: 2
+  
+fourteen: 
+  id: 14
+  name: Check MiniDV Deck
+  description: Transfer a video from DV tape to iMovie. The El Gato converter cables and DV tapes can be found in the roamer bucket in 1206.
+  room_id: 2
+  
+fifteen:
+  id: 15
+  name: Check VHS Deck
+  description: Transfer a video from VHS tape to iMovie. The El Gato converter cables and a VHS tape can be found in the roamer bucket in 1206.
+  room_id: 2
+  
+sixteen:
+  id: 16
+  name: Straighten Up Studio
+  description: Clean up any garbage.  Remove any furniture that is not supposed to be in the room. Once every few weeks wipe down the work stations.
+  room_id: 3
+  
+seventeen:
+  id: 17
+  name: Switch Off Equipment
+  description: Make sure both computers are off.  Also make sure TV and VCR and DV deck are off.  Look to see all the audio equipment is off.
+  room_id: 3
+  
+eighteen:
+  id: 18
+  name: Check Softbox Lighting
+  description: Make sure both lights are in the room.
+  room_id: 3
+  
+nineteen:
+  id: 19    
+  name: Check Computer Speakers
+  description: Make sure both speakers are connected to the video station and working.
+  room_id: 3
+  
+twenty:
+  id: 20
+  name: Check Focusrite
+  description: Make sure Focusrite is in the room.
+  room_id: 3
+  
+twentyone:
+  id: 21
+  name: Check USB Mic
+  description: Make sure mic is at the audio station.
+  room_id: 3
+  
+twentytwo:
+  id: 22
+  name: Check MIDI Keyboard
+  description: Make sure MIDI keyboard is at the audio station.
+  room_id: 3 
+  
+twentythree:
+  id: 23
+  name: Check MIDI Pad
+  description: Make sure MIDI pad is at the audio station.
+  room_id: 3
+  
+twentyfour:
+  id: 24
+  name: Check KRK Speakers
+  description: Make sure the 2 KRK speakers are connected to the audio station and working.
+  room_id: 3
+  
+twentyfive:
+  id: 25
+  name: Check USB Tape Deck
+  description: Make sure the tape deck is at the audio station.
+  room_id: 3
+  
+twentysix:
+  id: 26
+  name: Check USB Turntable
+  description: Make sure the turntable is at the audio station.
+  room_id: 3
+  
+twentyseven:
+  id: 27
+  name: Check Mic Stand
+  description: Check to see that the mic stand with boom is in the room and put away corner to the right of the video work station.
+  room_id: 3
+  
+twentyeight:
+  id: 28
+  name: Check MS Surface Tables
+  description: Wipe off tables.  Make sure the tables are working.  Check the internet connection on the tables.
+  room_id: 4
+  
+twentynine:
+  id: 29
+  name: Check Gaming Station
+  description: Make sure TV and each game station works.  Use the paddle and DVD in the roaming bucket in 1206 to check sound on the station as well.
+  room_id: 4
+  
+thirty:
+  id: 30
+  name: Check Perseptive Pixel
+  description: Test a few applications to make sure they work.  Go to YouTube and play a video to test sounds.  Every few weeks wipe down the screen.
+  room_id: 4
+  
+thirtyone:
+  id: 31
+  name: Check Quad Screen
+  description: Use the lightning connector in the roaming bucket in 1206 to test the 4 vga connectors with the ipad. Go to YouTube on the ipad and play a video to test sounds.
+  room_id: 4
+  
+thirtytwo:
+ id: 32
+ name: Check SMARTBoard
+ description: Calibrate SMART Board. Login into the SMART Board. Open Smart Board tools application. Select calibeate icon and follow directions.
+ room_id: 4
+ 
+thirtythree:
+  id: 33
+  name: Straighten Tech Sandbox
+  description: Make sure all unused chairs are pushed in and in their right place.  Clean up any garbage in the space.
+  room_id: 4
+  
+thirtyfour:
+  id: 34
+  name: Check Printers
+  description: Check the printers for any error messages. Clean up any garbage or loose papers around the printers.
+  room_id: 5
+    
+thirtyfive:
+  id: 35
+  name: Check Open Desktops
+  description: Login onto any open machines to make sure they are working.  Check for any missing applications like Word and Acrobat. Clean up any garbage or loose papers around the workstations.
+  room_id: 5
+    
+thirtysix:
+  id: 36
+  name: Check Study Room
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 5
+  
+thirtyseven:
+  id: 37
+  name: Check Printers
+  description: Check the printers for any error messages. Clean up any garbage or loose papers around the printers.
+  room_id: 6  
+  
+thirtyeight:
+  id: 38
+  name: Check Open Desktops
+  description: Login onto any open machines to make sure they are working.  Check for any missing applications like Word and Acrobat. Clean up any garbage or loose papers around the workstations.
+  room_id: 6
+  
+thirtynine:
+  id: 39
+  name: Check Study Room A
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 6
+  
+forty:
+  id: 40
+  name: Check Study Room B
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 6
+  
+fortyone:
+  id: 41
+  name: Check Printers
+  description: Check the printers for any error messages. Clean up any garbage or loose papers around the printers.
+  room_id: 7
+  
+fortytwo:
+  id: 42
+  name: Check Open Desktops 
+  description: Login onto any open machines to make sure they are working.  Check for any missing applications like Word and Acrobat. Clean up any garbage or loose papers around the workstations.
+  room_id: 7
+  
+fortythree:
+  id: 43
+  name: Check Study Room A
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 7
+  
+fortyfour:
+  id: 44
+  name: Check Study Room B
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 7
+  
+fortyfive:
+  id: 45
+  name: Check Printers
+  description: Check the printers for any error messages. Clean up any garbage or loose papers around the printers.
+  room_id: 8
+  
+fortysix:
+  id: 46
+  name: Check Open Desktops    
+  description: Login onto any open machines to make sure they are working.  Check for any missing applications like Word and Acrobat. Clean up any garbage or loose papers around the workstations.
+  room_id: 8
+  
+fortyseven:
+  id: 47
+  name: Check Study Room A
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 8
+  
+fortyeight:
+  id: 48
+  name: Check Study Room B
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 8
+  
+fortynine:
+  id: 49
+  name: Check Printers      
+  description: Check the printers for any error messages. Clean up any garbage or loose papers around the printers.
+  room_id: 9
+  
+fifty:
+  id: 50
+  name: Check Open Desktops 
+  description: Login onto any open machines to make sure they are working.  Check for any missing applications like Word and Acrobat. Clean up any garbage or loose papers around the workstations.
+  room_id: 9
+  
+fiftyone:
+  id: 51
+  name: Check Study Room A  
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 9
+  
+fiftytwo:
+  id: 52
+  name: Check Study Room B
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 9
+  
+fiftythree:
+  id: 53
+  name: Check Printers
+  description: Check the printers for any error messages. Clean up any garbage or loose papers around the printers.
+  room_id: 10
+  
+fiftyfour:
+  id: 54
+  name: Check Open Desktops 
+  description: Login onto any open machines to make sure they are working.  Check for any missing applications like Word and Acrobat. Clean up any garbage or loose papers around the workstations.
+  room_id: 10
+  
+fiftyfive:
+  id: 55
+  name: Check Study Room A
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 10
+  
+fiftysix:
+  id: 56
+  name: Check Study Room B
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 10
+  
+fiftyseven:
+  id: 57
+  name: Check Printers
+  description: Check the printers for any error messages. Clean up any garbage or loose papers around the printers.
+  room_id: 11
+  
+fiftyeight:
+  id: 58
+  name: Check Open Desktops
+  description: Login onto any open machines to make sure they are working.  Check for any missing applications like Word and Acrobat. Clean up any garbage or loose papers around the workstations.
+  room_id: 11
+  
+fiftynine:
+  id: 59
+  name: Check Study Room A  
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 11
+  
+sixty:
+  id: 60
+  name: Check Study Room B
+  description: Test vga and hdmi connections to the screen by using the connectors for the ipad which can be found in the roaming bucket in 1206. Make sure there is no trash laying around the room. Make sure correct furniture is in the room.
+  room_id: 11
+  
+sixtyone:
+  id: 61
+  name: Check Printers
+  description: Check the printers for any error messages. Clean up any garbage or loose papers around the printers.
+  room_id: 12
+  
+sixtytwo:
+  id: 62
+  name: Check Open Desktops
+  description: Login onto any open machines to make sure they are working.  Check for any missing applications like Word and Acrobat. Clean up any garbage or loose papers around the workstations.
+  room_id: 12
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    

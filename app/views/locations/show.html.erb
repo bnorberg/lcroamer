@@ -1,0 +1,22 @@
+<% if !@location.rooms.blank? %>
+<div class="container">
+    <div class="row">
+      <div class="span9"><%- model_class = Task -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+  </thead>
+  <tbody>
+  </tbody>
+</table></div>	
+	 <div class="span3">
+			      <h2>Rooms</h2>
+			<% @location.rooms.each do |room| %>
+			      	<ul>
+				            <li><%= link_to room.name, room_path(room) %></li>
+				          </ul>
+			<% end %>	
+			    </div>
+<% end %>			

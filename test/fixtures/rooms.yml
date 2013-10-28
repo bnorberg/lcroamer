@@ -1,0 +1,64 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: Learning Commons
+  location_id: 1
+
+two:
+  id: 2
+  name: Digital Media Lab
+  location_id: 1
+
+three:
+  id: 3
+  name: Audio Studio
+  location_id: 1
+  
+four:
+  id: 4
+  name: Technology Sandbox
+  location_id: 1
+  
+five:
+  id: 5
+  name: 2nd Floor
+  location_id: 1
+  
+six:
+  id: 6
+  name: 3rd Floor
+  location_id: 1
+  
+seven:
+  id: 7
+  name: 4th Floor
+  location_id: 1
+  
+eight:
+  id: 8
+  name: 5th Floor
+  location_id: 1
+  
+nine:
+  id: 9
+  name: 6th Floor
+  location_id: 1
+  
+ten:
+  id: 10
+  name: 7th Floor
+  location_id: 1
+  
+eleven:
+  id: 11
+  name: 8th Floor
+  location_id: 1  
+  
+twleve:
+  id: 12
+  name: 9th Floor
+  location_id: 1
+
+  
+

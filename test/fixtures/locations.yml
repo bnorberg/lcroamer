@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: DH Hill Library
+
+two:
+  id: 2
+  name: James B. Hunt Jr. Library
