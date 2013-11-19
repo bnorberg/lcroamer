@@ -6,7 +6,7 @@ gem 'nokogiri'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'mysql2'
 gem "therubyracer"
 gem 'thin'
 gem 'omniauth-google-oauth2'
@@ -27,7 +27,6 @@ group :assets do
 end
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-gem 'aws-sdk'
 gem 'rails_autolink'
 
 # To use ActiveModel has_secure_password

@@ -1,13 +1,13 @@
 RoamerApp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => 'roamer-tool-bucket',
-      :access_key_id => ENV['AKIAJ7JQ2QSBEWFHZKLQ'],
-      :secret_access_key => ENV['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']
-    }
-  }
+ # config.paperclip_defaults = {
+  #  :storage => :s3,
+  #  :s3_credentials => {
+  #    :bucket => 'roamer-tool-bucket',
+  #    :access_key_id => ENV['AKIAJ7JQ2QSBEWFHZKLQ'],
+   #   :secret_access_key => ENV['WoQjIWTNNKa8Ad9PC8hJ1k5iv6m8Ks6EoltxXjeS']
+  #  }
+ # }
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
