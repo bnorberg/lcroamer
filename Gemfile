@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.0.0"
 
 gem 'rails', '3.2.14'
 gem 'nokogiri' 
@@ -11,7 +12,7 @@ gem "therubyracer"
 gem 'thin'
 gem 'omniauth-google-oauth2'
 
-gem 'twitter-bootstrap-turbo', :git => 'git://github.com/davydotcom/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 
