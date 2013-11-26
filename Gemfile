@@ -12,7 +12,7 @@ gem "therubyracer"
 gem 'thin'
 gem 'omniauth-google-oauth2'
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-turbo', :git => 'git://github.com/davydotcom/twitter-bootstrap-rails.git'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 

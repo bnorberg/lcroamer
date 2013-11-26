@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-	  <div class="navbar navbar-fixed-top">
+	  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 	    <div class="navbar-inner">
 	      <div class="container">
 	        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -20,25 +20,22 @@
 	          <span class="icon-bar"></span>
 	        </a>
 	        <a class="brand" href="#">Locations</a>
+  	  		<p class="navbar-text logout">
+  	  			<% if current_user %>
+  	  			 Hi, <%= current_user.username.split(" ")[0] %>...<a href="/logout" class="navbar-link logoutbutton">Logout</a>
+  	  			<% end %>
+			</p>
 	        <div class="nav-collapse">
-	          <ul class="nav">
-		<% Location.all.each do |location| %>
+	          <ul class="nav" id="locations">
+				<% Location.all.each do |location| %>
 	            <li><%= link_to location.name, location_path(location.id) %></li><% end %>
 	          </ul>
-	        </div>
+	        </div>	
 	      </div>
 	    </div>
 	  </div>
-	<div class="span3">
-		<div class="container">
-		<% if current_user %>
-		   <span><h2>Hi, <%= current_user.username.split(" ")[0] %>...<%= link_to "Logout", logout_path %></h2></span>
-		<% end %>	
-		</div>
-	  <%= yield %>
-	     </div>
-	    </div>
+	  <div class="span3" id="tasks">
+		 <span class="tasks"><%= yield %></span>
 	  </div>
-
 </body>
 </html>
