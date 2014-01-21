@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
+ruby "2.1.0"
 
 gem 'rails', '3.2.14'
-gem 'nokogiri' 
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'nokogiri' 
 gem 'mysql2'
 gem "therubyracer"
 gem 'thin'
@@ -39,8 +38,11 @@ gem 'rails_autolink'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
+# Deploy with Capistran
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-rails', '~> 1.1'
+# gem 'capistrano-rvm'
+# gem 'capistrano-bundler'
+ 
 # To use debugger
 # gem 'debugger'

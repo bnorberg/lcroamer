@@ -1,1 +1,4 @@
 config/initializers/omniauth.rb
+Capfile
+config/deploy.rb
+config/deploy/
