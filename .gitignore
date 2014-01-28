@@ -2,3 +2,5 @@ config/initializers/omniauth.rb
 Capfile
 config/deploy.rb
 config/deploy/
+config/initializers/secret_token.rb
+config/database.yml
