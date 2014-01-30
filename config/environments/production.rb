@@ -1,13 +1,13 @@
 RoamerApp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  config.paperclip_defaults = {
-     :storage => :s3,
-     :s3_credentials => {
-       :bucket => 'roamer-tool-bucket',
-       :access_key_id => ENV['AKIAJ7JQ2QSBEWFHZKLQ'],
-       :secret_access_key => ENV['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']
-     }
-   }
+  #config.paperclip_defaults = {
+  #   :storage => :s3,
+  #   :s3_credentials => {
+  #     :bucket => 'roamer-tool-bucket',
+  #     :access_key_id => ENV['AKIAJ7JQ2QSBEWFHZKLQ'],
+  #     :secret_access_key => ENV['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']
+  #   }
+  # }
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -19,7 +19,7 @@ RoamerApp::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.compress = false
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
