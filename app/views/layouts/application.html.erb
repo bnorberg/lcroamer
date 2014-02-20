@@ -28,28 +28,38 @@
 	        <div class="nav-collapse">
 	          <ul class="nav" id="locations">
 				<% Location.all.each do |location| %>  
-				<% if params[:controller] == 'locations' %>
-					<% if current_page?location_path(location) %>
-            			<li class="active"><%= link_to location.name, location_path(location.id) %></li>	
-					<% else %>	
-						<li><%= link_to location.name, location_path(location.id) %></li>
-					<% end %>
-				<% elsif params[:controller] == 'rooms' %>	
-  					<% current = Room.find_by_id(params[:id])%>
-					<% if current.location_id == location.id %>
-        				<li class="active"><%= link_to location.name, location_path(location.id) %></li>	
-					<% else %>	
-						<li><%= link_to location.name, location_path(location.id) %></li>
-					<% end %>
-				<% else %>
-					<% current = Task.find_by_id(params[:id])%>
-					<% c = Room.find_by_id(current.room_id)%>
-					<% if c.location_id == location.id %>
-	            		<li class="active"><%= link_to location.name, location_path(location.id) %></li>	
-					<% else %>	
-						<li><%= link_to location.name, location_path(location.id) %></li>
+					<% if params[:controller] == 'locations' %>
+						<% if current_page?location_path(location) %>
+	            			<li class="active"><%= link_to location.name, location_path(location.id) %></li>	
+						<% else %>	
+							<li><%= link_to location.name, location_path(location.id) %></li>
+						<% end %>
+					<% elsif params[:controller] == 'rooms' %>
+						<% if !current_page?rooms_path %>
+		  					<% current = Room.find_by_id(params[:id])%>
+							<% if current.location_id == location.id %>
+		        				<li class="active"><%= link_to location.name, location_path(location.id) %></li>	
+							<% else %>	
+								<li><%= link_to location.name, location_path(location.id) %></li>
+							<% end %>
+						<% else %>
+							<li><%= link_to location.name, location_path(location.id) %></li>
+						<% end %>	
+					<% elsif params[:controller] == 'tasks' %>
+						<% if !current_page?tasks_path %>
+							<% current = Task.find_by_id(params[:id])%>
+							<% c = Room.find_by_id(current.room_id)%>
+							<% if c.location_id == location.id %>
+		            			<li class="active"><%= link_to location.name, location_path(location.id) %></li>	
+								<% else %>	
+									<li><%= link_to location.name, location_path(location.id) %></li>
+								<% end %>
+						<% else %>
+							<li><%= link_to location.name, location_path(location.id) %></li>
+						<% end %>	
+					<% else %>
+						<li><%= link_to location.name, location_path(location.id) %></li>	
 					<% end %>	
-				<% end %>	
 				<% end %>
 	          </ul>
 	        </div>	
