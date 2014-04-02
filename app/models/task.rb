@@ -9,6 +9,7 @@ class Task < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
   
   belongs_to :room
+  belongs_to :location
   has_many :roams
   
   before_post_process :randomize_file_name 

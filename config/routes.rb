@@ -3,6 +3,7 @@ RoamerApp::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   get "libraries" => "locations#locationindex", :as => "libraries"
+  get "latest" => "locations#index", :as => "latest"
   
   root to: 'sessions#new'
   
