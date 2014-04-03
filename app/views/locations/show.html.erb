@@ -17,7 +17,7 @@
 			</thead>
 			<tbody>
 				<% @location.tasks.each do |task| %>
-					<% if task.updated_at < 5.days.ago %>
+					<% if task.roams.last.updated_at < 5.days.ago %>
 		  				<tr>
 							<td><%= link_to task.room.name, room_path(task.room.id) %></td>	
 		<!-- Trigger modal -->		

@@ -19,7 +19,7 @@
 	  			<tbody>
 	    			<% @locations.each do |location| %>
 					<% location.tasks.each do |task| %>
-						<% if task.updated_at > 1.day.ago && !task.note.blank? %>
+						<% if task.roams.last.updated_at > 1.day.ago && !task.note.blank? %>
 		      				<tr>
 								<td><%=location.name %></td>
 								<td><%= link_to task.room.name, room_path(task.room.id) %></td>	
