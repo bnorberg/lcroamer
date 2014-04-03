@@ -17,6 +17,7 @@
 			</thead>
 			<tbody>
 				<% @location.tasks.each do |task| %>
+				<% if !task.roams.empty? %>
 					<% if task.roams.last.updated_at < 5.days.ago %>
 		  				<tr>
 							<td><%= link_to task.room.name, room_path(task.room.id) %></td>	
@@ -56,6 +57,7 @@
 		    				<td><%= auto_link(task.note, :html=> { :target => '_blank' }) %></td>
 		  				</tr>
 					<% end %>
+				<% end %>
 				<% end %>
 				</tbody>
 			</table>
