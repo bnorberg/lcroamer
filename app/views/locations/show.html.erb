@@ -16,7 +16,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% @location.tasks.each do |task| %>
+				<% @location.tasks.sort_by! {|t| t.roams.last.updated_at}.each do |task| %>
 				<% if !task.roams.empty? %>
 					<% if task.roams.last.updated_at < 5.days.ago %>
 		  				<tr>
@@ -51,7 +51,7 @@
 									<a href="#" class="btn" data-dismiss="modal">Close</a>
 							  	</div>
 		<!-- End Modal Content -->	
-							<td id="<%=task.id%>"><%=task.roams.last.created_at.localtime.to_s.sub(/\-\d\d\d\d/, '') %></td>
+							<td id="<%=task.id%>" style="width:12%;" ><%=task.roams.last.created_at.localtime.to_s.split(' ')[0] %></td>
 							<td id="name_<%=task.id%>"><%= task.roams.last.roamer_name %></td>
 		<!-- Submits current user name and timestamp into the roams table -->
 		    				<td><%= auto_link(task.note, :html=> { :target => '_blank' }) %></td>
