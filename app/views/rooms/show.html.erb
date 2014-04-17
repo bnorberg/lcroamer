@@ -81,18 +81,18 @@
 			</div>	 
 			<div class="span3">
 	      		<h2>Areas</h2>
-				<% @rooms.each do |room| %>
-<!-- Stops the room the user is currently viewing from being a link -->
-				<% if @room.location_id == room.location_id %>
 				<ul id="rooms">
-				<% if current_page?room_path(room) %>
-		        	<li><b><%= room.name %></b></li>
-				<% else %>
-				<li><%= link_to room.name, room_path(room) %></li>
-				<% end %>
-		        </ul>
-		<% end %>
-				<% end %>
-					
+					<li class="roomlist"><%= link_to "Latest", locations_path %></li>
+					<% @rooms.each do |room| %>
+<!-- Stops the room the user is currently viewing from being a link -->
+						<% if @room.location_id == room.location_id %>
+							<% if current_page?room_path(room) %>
+		        				<li class="roomlist"><b><%= room.name %></b></li>
+							<% else %>
+								<li class="roomlist"><%= link_to room.name, room_path(room) %></li>
+							<% end %>
+						<% end %>
+					<% end %>
+				</ul>	
 	    	</div>
 </div>	
