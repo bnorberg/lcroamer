@@ -48,6 +48,11 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        @roam = Roam.new
+        @roam.roamer_name = current_user.username
+        @roam.task_id = @task.id
+        @roam.user_id = current_user.id 
+        @roam.save  
         format.html { redirect_to tasks_url, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
