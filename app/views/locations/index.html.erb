@@ -17,7 +17,8 @@
 	    			</tr>
 	  			</thead>
 	  			<tbody>
-	    			<% @locations.each do |location| %>
+	    			<% @locations.each do |location| %>					
+	<!-- List tasks that have been checked in the last 24 hours that have notes attached and sorts them descending from most current date time -->
 					<% location.tasks.sort_by! {|t| t.updated_at}.each do |task| %>
 						<% if task.roams.last.updated_at > 1.day.ago && !task.note.blank? %>
 		      				<tr>

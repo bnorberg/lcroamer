@@ -9,7 +9,7 @@
 	  			<thead>
 	    			<tr>
 	      				<th><%= model_class.human_attribute_name("Task") %></th>
-						<th><%= model_class.human_attribute_name("Note") %></th>
+						<th><%= model_class.human_attribute_name("Ticket") %></th>
 	      				<th><%= model_class.human_attribute_name("Last Checked") %></th>
 						<th><%= model_class.human_attribute_name("By") %></th>
 	      				<th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -82,7 +82,7 @@
 			<div class="span3">
 	      		<h2>Areas</h2>
 				<ul id="rooms">
-					<li class="roomlist"><%= link_to "Latest", locations_path %></li>
+					<li class="roomlist"><%= link_to "Latest Tickets", locations_path %></li>
 					<% @rooms.each do |room| %>
 <!-- Stops the room the user is currently viewing from being a link -->
 						<% if @room.location_id == room.location_id %>

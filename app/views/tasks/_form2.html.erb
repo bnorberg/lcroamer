@@ -3,17 +3,8 @@
   <div class="control-group">
     <%= f.label :note, :class => 'control-label' %>
     <div class="controls">
-<!-- Adds below default text if these is no note currently in the textbox -->	
 	<% if @task.note.blank? %>
-	  <%= f.text_area :note, :value => "Add new note with some or all of the following:
-
-*what is wrong with the hardware and where is it located?
-	
-*what is the date?
-
-*was a ticket put in and on what date?
-
-*what part of the task did you complete?", :class => 'text_area', :style => "color:gray; font-style:italic" %>
+	  <%= f.text_area :note %>
 	<% else %>
       <%= f.text_area :note, :class => 'text_area' %>
     </div>

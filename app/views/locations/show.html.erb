@@ -16,6 +16,7 @@
 				</tr>
 			</thead>
 			<tbody>
+		<!-- List tasks that have not been checked in over five days and sorts so the roam that has gone longest without being checked shows up on top -->
 				<% @location.tasks.sort_by! {|t| t.roams.last.updated_at}.each do |task| %>
 					<% if task.roams.last.updated_at < 5.days.ago %>
 		  				<tr>
@@ -63,7 +64,7 @@
 	<div class="span3">
 		<h2>Areas</h2>
 			<ul>
-				<li class="roomlist"><%= link_to "Latest", locations_path %></li>
+				<li class="roomlist"><%= link_to "Latest Tickets", locations_path %></li>
 				<% @location.rooms.each do |room| %>
 					<li class="roomlist"><%= link_to room.name, room_path(room) %></li>
 				<% end %>
