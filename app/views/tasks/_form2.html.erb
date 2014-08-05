@@ -1,7 +1,7 @@
 <!-- Form used to add/edit/remove comments from tasks -->
 <%= form_for @task, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :note, :class => 'control-label' %>
+    <%= f.label :note, 'Description', :class => 'control-label' %>
     <div class="controls">
 	<% if @task.note.blank? %>
 	  <%= f.text_area :note %>
