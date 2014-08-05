@@ -1,0 +1,67 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Room</th>
+      <th>Task</th>
+      <th>Last Checked</th>
+      <th>By</th>
+      <th>Problem</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <% if task.roams.last.updated_at < 5.days.ago %>
+        <tr>
+          <td><%= link_to task.room.name, room_path(task.room.id) %></td> 
+          
+          <td>
+            
+            <!-- Trigger modal --> 
+            <a type="button" style="width:100%;" href="#info_modal_<%= task.id %>" data-toggle="modal"><%= task.name %></a>
+            
+            <!-- Start Modal Content -->         
+            <div class="modal fade" id="info_modal_<%= task.id %>">
+              <div class="modal-header">
+                <a class="close" data-dismiss="modal">&times;</a>
+                <h3><%= task.name %></h3>
+              </div>              
+              
+              <div class="modal-body">
+                <% if !task.photo.blank? %>
+                  <% if task.photo_file_size < 100000 %>
+                    <div class="image-wrapper"><%= link_to image_tag( task.photo.url), task.photo.url, :target => '_blank' %></div>
+                    <p><%= auto_link(task.description, :html=> { :target => '_blank' }) %></p>
+                  <% else %>
+                    <div class="image-wrapper"><%= link_to image_tag( task.photo.url(:medium)), task.photo.url, :target => '_blank' %></div>
+                    <p><%= auto_link(task.description, :html=> { :target => '_blank' }) %></p>
+                  <% end %>
+                <% else %>  
+                  <p> No Image</p>
+                  <p><%= auto_link(task.description, :html => { :target => '_blank' }) %></p> 
+                <% end %>
+                
+                <% if !task.note.blank? %>
+                  <p><b>Note: <%= auto_link(task.note, :html=> { :target => '_blank' }) %></b></p>
+                <% end %>
+              </div>
+
+              <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+              </div>
+            </div>
+            <!-- End Modal Content --> 
+
+          </td>
+           
+          <td id="<%=task.id%>" style="width:12%;" ><%=task.roams.last.created_at.localtime.to_s.split(' ')[0] %></td>
+          
+          <td id="name_<%=task.id%>"><%= task.roams.last.roamer_name %></td>
+          
+          <!-- Submits current user name and timestamp into the roams table -->
+          <td><%= auto_link(task.note, :html=> { :target => '_blank' }) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

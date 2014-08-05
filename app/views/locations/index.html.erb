@@ -1,69 +1,74 @@
 <div class="containter"id="latest">
 	<div class="container">
-	    <div class="row">
-	      <div class="span9"><%- model_class = Location -%>
-			<div class="page-header">
-	  			<h1 class="title">Latest Tickets</h1>
-			</div>
-			<table class="table table-striped">
-	  			<thead>
-	    			<tr>
-						<th><%= model_class.human_attribute_name("Location") %></th>
-	      				<th><%= model_class.human_attribute_name("Room") %></th>
-						<th><%= model_class.human_attribute_name("Task") %></th>
-	      				<th><%= model_class.human_attribute_name("Last Checked") %></th>
-						<th><%= model_class.human_attribute_name("By") %></th>
-	      				<th><%= model_class.human_attribute_name("Problem") %></th>
-	    			</tr>
-	  			</thead>
-	  			<tbody>
-	    			<% @locations.each do |location| %>
-					<% location.tasks.sort_by! {|t| t.updated_at}.each do |task| %>
-						<% if task.roams.last.updated_at > 1.day.ago && !task.note.blank? %>
-		      				<tr>
-								<td><%=location.name %></td>
-								<td><%= link_to task.room.name, room_path(task.room.id) %></td>	
-	<!-- Trigger modal -->		
-		        				<td>
-									<a type="button" style="width:100%;" href="#info_modal_<%= task.id %>" data-toggle="modal"><%= task.name %></a></td>
-	<!-- Start Modal Content -->							
-								<div class="modal fade" id="info_modal_<%= task.id %>">
-									<div class="modal-header">
-								    	<a class="close" data-dismiss="modal">&times;</a>
-								    	<h3><%= task.name %></h3>
-									</div>							  
-									<div class="modal-body">
-										<% if !task.photo.blank? %>
-									  		<% if task.photo_file_size < 100000 %>
-								    			<%= link_to image_tag( task.photo.url), task.photo.url, :target => '_blank' %><br /><br />
-												<p><%= auto_link(task.description, :html=> { :target => '_blank' }) %></p>
-									  		<% else %>
-												<%= link_to image_tag( task.photo.url(:medium)), task.photo.url, :target => '_blank' %><br /><br />
-												<p><%= auto_link(task.description, :html=> { :target => '_blank' }) %></p>
-											<% end %>
-										<% else %>	
-											<p> No Image</p><br />
-											<p><%= auto_link(task.description, :html => { :target => '_blank' }) %></p>	
-									  	<% end %>
-										<% if !task.note.blank? %>
-											<p><b>Note: <%= auto_link(task.note, :html=> { :target => '_blank' }) %></b></p>
-									  	<% end %>
-								  	</div>
-								  	<div class="modal-footer">
-										<a href="#" class="btn" data-dismiss="modal">Close</a>
-								  	</div>
-	<!-- End Modal Content -->	
-								<td id="<%=task.id%>" style="width:12%;"><%=task.roams.last.created_at.localtime.to_s.split(' ')[0] %></td>
-								<td id="name_<%=task.id%>"><%= task.roams.last.roamer_name %></td>
-	<!-- Submits current user name and timestamp into the roams table -->
-		        				<td><%= auto_link(task.note, :html=> { :target => '_blank' }) %></td>
-		      				</tr>
+		<div class="row">
+			<div class="span9"><%- model_class = Location -%>
+				<div class="page-header">
+					<h1 class="title">Latest Tickets</h1>
+				</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th><%= model_class.human_attribute_name("Location") %></th>
+							<th><%= model_class.human_attribute_name("Room") %></th>
+							<th><%= model_class.human_attribute_name("Task") %></th>
+							<th><%= model_class.human_attribute_name("Last Checked") %></th>
+							<th><%= model_class.human_attribute_name("By") %></th>
+							<th><%= model_class.human_attribute_name("Problem") %></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @locations.each do |location| %>
+							<% location.tasks.sort_by! {|t| t.updated_at}.each do |task| %>
+								<% if task.roams.last.updated_at > 1.day.ago && !task.note.blank? %>
+									<tr>
+										<td><%=location.name %></td>
+										<td><%= link_to task.room.name, room_path(task.room.id) %></td>	
+										<!-- Trigger modal -->		
+										<td>
+											<a type="button" style="width:100%;" href="#info_modal_<%= task.id %>" data-toggle="modal"><%= task.name %></a>
+										</td>
+										
+											<!-- Start Modal Content -->							
+											<div class="modal fade" id="info_modal_<%= task.id %>">
+												<div class="modal-header">
+													<a class="close" data-dismiss="modal">&times;</a>
+													<h3><%= task.name %></h3>
+												</div>							  
+												<div class="modal-body">
+													<% if !task.photo.blank? %>
+														<% if task.photo_file_size < 100000 %>
+															<%= link_to image_tag( task.photo.url), task.photo.url, :target => '_blank' %><br /><br />
+															<p><%= auto_link(task.description, :html=> { :target => '_blank' }) %></p>
+														<% else %>
+															<%= link_to image_tag( task.photo.url(:medium)), task.photo.url, :target => '_blank' %><br /><br />
+															<p><%= auto_link(task.description, :html=> { :target => '_blank' }) %></p>
+														<% end %>
+													<% else %>	
+														<p> No Image</p><br />
+														<p><%= auto_link(task.description, :html => { :target => '_blank' }) %></p>	
+													<% end %>
+													<% if !task.note.blank? %>
+														<p><b>Note: <%= auto_link(task.note, :html=> { :target => '_blank' }) %></b></p>
+													<% end %>
+												</div>
+												<div class="modal-footer">
+													<a href="#" class="btn" data-dismiss="modal">Close</a>
+												</div>
+												<!-- End Modal Content -->
+											</div>
+
+										<td id="<%=task.id%>" style="width:12%;"><%=task.roams.last.created_at.localtime.to_s.split(' ')[0] %></td>
+										<td id="name_<%=task.id%>"><%= task.roams.last.roamer_name %></td>
+										<!-- Submits current user name and timestamp into the roams table -->
+										<td><%= auto_link(task.note, :html=> { :target => '_blank' }) %></td>
+									</tr>
+								<% end %>
+							<% end %>
 						<% end %>
-					<% end %>
-					<% end %>
-	  				</tbody>
+					</tbody>
 				</table>
-			</div>
-					
-	    	</div>
+			
+		</div>
+
+	</div>
 </div>	

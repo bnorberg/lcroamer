@@ -1,4 +1,7 @@
 class LocationsController < ApplicationController
+  
+  include LocationsHelper
+
   before_filter :zero_authors_or_authenticated
   # GET /locations
   # GET /locations.json
@@ -24,7 +27,8 @@ class LocationsController < ApplicationController
   # GET /locations/1.json
   def show
     @location = Location.find(params[:id])
-
+    @tasks = @location.tasks.sort_by! {|t| t.roams.last.updated_at}
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @location }
