@@ -10,10 +10,10 @@ gem "therubyracer"
 gem 'thin'
 gem 'omniauth-google-oauth2'
 
-# gem 'twitter-bootstrap-turbo', :git => 'git://github.com/davydotcom/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-turbo', :git => 'git://github.com/davydotcom/twitter-bootstrap-rails.git'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+# gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
